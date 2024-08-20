@@ -1,0 +1,76 @@
+* {
+    transition: all 0.4s;
+    text-wrap: balance;
+    animation: slideup 1s ease 1;
+}
+
+@keyframes slideup {
+    0% {
+        opacity: 0.7;
+        filter: blur(5px);
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0px);
+    }
+}
+
+body {
+    overflow-y: hidden;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 90%;
+    background-image: linear-gradient(45deg, rgba(0, 255, 89, 0.31), transparent, transparent);
+    background-size: fill;
+    filter: blur(10px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 90%;
+    background-image: linear-gradient(-135deg, rgba(0, 166, 255, 0.3), transparent, transparent);
+    background-size: fill;
+    filter: blur(10px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+.glow {
+    box-shadow: 0 0 50px rgba(0, 255, 0, 0.249);
+}
+
+.glow.red {
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.467);
+}
+
+input.red {
+    color: red;
+    border: red 1px solid;
+}
+
+label.red {
+    color: red;
+}

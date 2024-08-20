@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <title>Islamic Insights</title>
+    <link rel="icon" type="image/png" href="/static/logo.png" />
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/forms.css">
+    <link rel="stylesheet" href="/static/loader.css">
+</head>
+<body class="min-h-screen flex items-center justify-center">
+        
+        <div class="w-full max-w-md p-8 glass-effect glow">
+            <a class=" bg-transparent disabled normal-case text-xl"
+            style="pointer-events: none;border: none; box-shadow: none; outline: none; position: absolute;  top: 4px; left:4px;"><img
+                src="/static/logo.png" class="logo" title="Islamic Insights"
+                alt="Islamic Insights Ai" /></a><br>
+            <h2 class="text-3xl font-bold mb-6 text-center text-green-800">Sign Up</h2>
+            <form id="signupForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                </div>
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" id="username" name="username" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                </div>
+      
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
+                </div>
+                <button type="submit" class="w-full btn bg-green-500 lo">Sign Up</button>
+            </form>
+            <p class="mt-4 text-center">
+                Already have an account? <a href="/login" class="text-green-600 hover:text-green-800">Log in</a>
+            </p>
+        </div>
+        <script>
+            const form = document.getElementById('signupForm');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                document.querySelector('.lo').style.backgroundColor = '#202020';
+            document.querySelector('.lo').innerHTML = `
+                           <div class="rotating_loader">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                        <div class="bar4"></div>
+                        <div class="bar5"></div>
+                        <div class="bar6"></div>
+                        <div class="bar7"></div>
+                        <div class="bar8"></div>
+                        <div class="bar9"></div>
+                        <div class="bar10"></div>
+                        <div class="bar11"></div>
+                        <div class="bar12"></div>
+                    </div>`
+                const formData = new FormData(form);
+                const name = formData.get('name');
+                const username = formData.get('username');
+                const password = formData.get('password');
+                fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({name, username, password})
+                }).then(response => response.json()).then(data => {
+                    console.log(data);
+                    if (data.success) {
+                        window.location.href = '/verify-email';
+                    } else {
+                        const ele = document.querySelector('.glow');
+                 document.querySelector('.lo').innerHTML = `Sign Up`
+                    document.querySelector('.lo').style = ''
+                        document.querySelectorAll('input').forEach((input) => input.classList.add('red'));
+                        document.querySelectorAll('label').forEach((label) => label.classList.add('red'));
+                        ele.classList.add('red');
+    
+                        alert(data.failure);
+    
+                        setTimeout(() => {
+                            ele.classList.remove('red');
+                            document.querySelectorAll('input').forEach((input) => input.classList.remove('red'));
+                            document.querySelectorAll('label').forEach((label) => label.classList.remove('red'));
+                        }, 2000);
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>

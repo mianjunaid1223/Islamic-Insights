@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <title>Islamic Insights: Your Guide to Islamic Knowledge and Understanding</title>
+    <meta name="description"
+        content="Explore Islamic teachings, principles, and practices with Islamic Insights. Get answers to your questions about Islam from our AI-powered platform.">
+    <meta name="keywords" content="Islam, Islamic teachings, Islamic principles, Quran, Hadith, Islamic knowledge">
+    <meta name="author" content="Mian junaid">
+    <link rel="canonical" href="https://www.islamicinsights.com" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.islamicinsights.com">
+    <meta property="og:title" content="Islamic Insights: Your Guide to Islamic Knowledge">
+    <meta property="og:description"
+        content="Explore Islamic teachings and get answers to your questions about Islam from our AI-powered platform.">
+    <meta property="og:image" content="https://www.islamicinsights.com/static/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.islamicinsights.com">
+    <meta property="twitter:title" content="Islamic Insights: Your Guide to Islamic Knowledge">
+    <meta property="twitter:description"
+        content="Explore Islamic teachings and get answers to your questions about Islam from our AI-powered platform.">
+    <meta property="twitter:image" content="https://www.islamicinsights.com/static/twitter-image.jpg">
+
+    <link rel="icon" type="image/png" href="/static/logo.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="/static/loader.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/config.js"></script>
+    <style>
+        * {
+            transition: all 0.4s;
+            text-wrap: balance;
+            animation: slideup 1s ease 1;
+        }
+
+        @keyframes slideup {
+            0% {
+                opacity: 0.7;
+                filter: blur(5px);
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: translateY(0px);
+            }
+        }
+
+        body {
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 90%;
+            background-image: linear-gradient(45deg, #00ff594f, transparent, transparent);
+            background-size: fill;
+            filter: blur(10px);
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 90%;
+            background-image: linear-gradient(-135deg, #00a6ff4d, transparent, transparent);
+            background-size: fill;
+            filter: blur(10px);
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        .glass {
+            width: 98vw;
+            min-height: 97svh;
+            margin-top: 1vh;
+            margin-left: 1vw;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero {
+            width: 100%;
+            height: 97vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: self-start;
+            padding: 5px;
+            width: 50%;
+            height: 70vh;
+            border-right: 2px solid lightgray;
+        }
+
+        h3 {
+            font-size: 20px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .getstarted {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+
+        .h2 {
+            font-size: 31px;
+            font-weight: 600;
+            padding: 5px;
+            text-align: center;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .replacement {
+            display: none;
+        }
+
+        .full-logo {
+            pointer-events: none;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            margin: 10px;
+            padding: 10px;
+            height: 70px;
+            scale: 1.3;
+        }
+        .full-logo img{
+            margin: 10px !important;
+        }
+
+        @media screen and (max-width: 900px) {
+            .glass {
+                width: 100%;
+                height: 100%;
+                margin-top: 0;
+                margin-left: 0;
+                border-radius: 0;
+                border: none;
+                text-align: center;
+                flex-direction: column;
+            }
+            .full-logo{
+                justify-self: flex-start !important;
+                align-self: flex-start !important;
+                margin: 0 !important;
+                text-align: right !important;
+            }
+            .content {
+                width: 100%;
+                height: 50dvh;
+                border-right: none;
+                text-align: center;
+                align-self: flex-end;
+                justify-self: flex-end !important;
+
+            }
+
+            .getstarted {
+                width: 100%;
+                height: 30%;
+                text-align: center;
+
+            }
+
+            .h2 {
+                font-size: 20px;
+            }
+
+            .take {
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .slider {
+                text-align: center !important;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            section {
+                display: none;
+            }
+
+            .replacement {
+                margin-top: 5%;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .h2 {
+                font-size: 18px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            .glass {
+                padding: 10px;
+            }
+
+            .hero {
+                align-items: center;
+                text-align: center;
+            }
+
+            .content {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="glass">
+        <div class="hero">
+            <a class="btn bg-transparent disabled normal-case text-xl full-logo"><img src="/static/fullLogo.png"
+                class="logo" title="Islamic Insights" alt="Islamic Insights Ai" /></a>
+            <div class="flex flex-row justify-center take">
+                <div class="content">
+                    <div style="scale: 1;"
+                    class="font-extrabold text-3xl md:text-4xl [text-wrap:balance] text-gray-700 slider">
+                   Elevate your 
+                   <span class="text-green-500 inline-flex flex-col h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] overflow-hidden">
+                       <ul class="block animate-text-slide-5 text-left leading-tight [&_li]:block">
+                           <li>devotion</li>
+                           <li>insight</li>
+                           <li>belief</li>
+                           <li>wisdom</li>
+                           <li>clarity</li>
+                           <li aria-hidden="true">devotion</li>
+                       </ul>
+                   </span>
+               </div>
+               
+
+                    <section style="padding: 10px;">
+                        <div class="content-container">
+                            <h3>
+                                Explore a wide range of <strong>Islamic knowledge</strong> through our <em>AI-powered
+                                    platform</em>.
+                            </h3>
+                            <p>
+                                This platform provides you with easy access to detailed information about Islamic
+                                teachings. Whether you have specific questions or want to explore broader topics, it’s
+                                designed to support your learning journey.
+                            </p>
+                            <p>
+                                The AI technology helps you find relevant resources and insights quickly, making it
+                                easier to deepen your understanding of Islamic principles and heritage.
+                            </p>
+
+                        </div>
+                    </section>
+                    <h4 class="replacement">Access Islamic knowledge easily with AI, offering quick insights and
+                        resources.</h4>
+                </div>
+                <div class="getstarted">
+                    <p class="h2">Begin Your Journey of Discovery</p>
+                    <div class="flex flex-row flex w-full justify-center"><a href="/login">
+                            <button class="btn  w-40 bg-green-500 btn-success text-white">Login</button></a>
+                        <div class="divider divider-horizontal">OR</div><a href="/signup">
+                            <button class="btn  w-40 bg-green-500 btn-success text-white"> signup</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
