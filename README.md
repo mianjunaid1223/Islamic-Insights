@@ -1,5 +1,8 @@
 # Islamic Insights: Conversational Islamic Knowledge Platform
 
+[![Year Built](https://img.shields.io/badge/Year%20Built-2024-blue.svg)](#)
+
+
 A full-stack Flask web application and AI assistant dedicated to contextual question answering on Islamic theology, ethics, history, and jurisprudence. Backed by MongoDB for persistent user account and conversation management, the platform utilizes Google Gemini 1.5 Flash with specialized domain instructions emphasizing Quranic and Hadith citations.
 
 ---
